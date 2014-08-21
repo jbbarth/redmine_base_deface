@@ -1,7 +1,7 @@
-require File.dirname(__FILE__) + "/../test_helper"
+require File.dirname(__FILE__) + "/../spec_helper"
 
-class DefacePathsTest < ActiveSupport::TestCase
-  def test_app_overrides_paths
+describe "DefacePaths" do
+  it "should app overrides paths" do
     overrides_paths = Rails.application.paths["app/overrides"]
     this_plugin_paths = Rails.root.join("plugins/redmine_base_deface/app/overrides")
     assert overrides_paths.include?(this_plugin_paths.to_s),
