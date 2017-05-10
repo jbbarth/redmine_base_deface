@@ -12,7 +12,7 @@ Please apply general instructions for plugins [here](http://www.redmine.org/wiki
 
 First download the source or clone the plugin and put it in the "plugins/" directory of your redmine instance. Note that this is crucial that the directory is named redmine_base_deface !
 
-Then execute:
+Then execute from redmine root directory:
 
     $ bundle install
     $ rake redmine:plugins
