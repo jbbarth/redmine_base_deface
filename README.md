@@ -19,6 +19,19 @@ Then execute from redmine root directory:
 
 And finally restart your Redmine instance.
 
+Test status
+-----------
+
+|Plugin branch| Redmine Version | Test Status       |
+|-------------|-----------------|-------------------|
+|master       | 5.0.0           | [![5.0.0][1]][5]  |  
+|master       | 4.2.5           | [![4.2.5][2]][5]  |
+|master       | master          | [![master][4]][5] |
+
+[1]: https://github.com/nanego/redmine_base_deface/actions/workflows/5_0_0.yml/badge.svg
+[2]: https://github.com/nanego/redmine_base_deface/actions/workflows/4_2_5.yml/badge.svg
+[4]: https://github.com/nanego/redmine_base_deface/actions/workflows/master.yml/badge.svg
+[5]: https://github.com/nanego/redmine_base_deface/actions
 
 Contributing
 ------------
