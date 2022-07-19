@@ -1,6 +1,6 @@
 require_dependency 'deface/applicator'
 
-module Deface
+module ApplicatorPatch
   module Applicator
     module ClassMethods
 
