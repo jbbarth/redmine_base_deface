@@ -20,6 +20,10 @@ if Rails.version > '6.0'
     load File.expand_path(path, __FILE__)
   end
 
+  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
+    Deface::DSL::Loader::load File.expand_path(path, __FILE__)
+  end
+
   Rails.application.config.after_initialize do
     require_relative "lib/applicator_patch"
   end
