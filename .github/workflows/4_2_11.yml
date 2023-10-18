@@ -1,8 +1,8 @@
-name: Tests 4.2.10
+name: Tests 4.2.11
 
 env:
   PLUGIN_NAME: redmine_base_deface
-  REDMINE_VERSION: 4.2.10
+  REDMINE_VERSION: 4.2.11
   RAILS_ENV: test
 
 on:
