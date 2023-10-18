@@ -2,7 +2,7 @@ Redmine::Plugin.register :redmine_base_deface do
   name 'Redmine Base Deface plugin'
   author 'Jean-Baptiste BARTH'
   description 'This is a plugin for Redmine'
-  version '1.6.2'
+  version '1.8.1-xmr-2'
   url 'https://github.com/jbbarth/redmine_base_deface'
   author_url 'jeanbaptiste.barth@gmail.com'
   #doesn't work since redmine evaluates dependencies as it loads, and loads in lexical order
