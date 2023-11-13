@@ -24,11 +24,9 @@ module Deface
                              name: 'Posts#index',
                              remove: 'p')
       end
-      text_snippet = '<%= javascript_tag do %>if (y > 0) {y = 0;}<% end %>'
-      let(:source) { text_snippet }
+      let(:source) { "<%= javascript_tag do %>if (y > 0) {y = 0;}<% end %>" }
       it 'should return unmodified source' do
-        expect(Dummy.apply(source,
-                           { virtual_path: 'posts/index' })).to eq(text_snippet)
+        expect(Dummy.apply(source, { virtual_path: 'posts/index' })).to eq("<%= javascript_tag do %>if (y > 0) {y = 0;}<% end %>")
       end
     end
   end
