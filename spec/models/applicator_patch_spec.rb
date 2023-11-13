@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 # Dummy Deface instance for testing actions / applicator
