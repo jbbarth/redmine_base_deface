@@ -1,0 +1,46 @@
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 3.1
+
+  Exclude:
+    - '**/vendor/**/*'
+    - '**/tmp/**/*'
+    - '**/bin/**/*'
+    - '**/extra/**/*'
+    - '**/lib/generators/**/templates/*'
+    - '**/lib/tasks/**/*'
+    - '**/files/**/*'
+    - '**/test/**/*'
+    - '**/db/migrate/*'
+    - 'db/schema.rb'
+    - '**/*_patch.rb'
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-minitest
+  - rubocop-rake
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  Exclude:
+    - 'db/**/*.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'test/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'test/**/*'
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false

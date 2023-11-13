@@ -1,5 +1,0 @@
-# Supports Rails 5.2
-# gem 'deface', '1.6.2'
-# supports Rails 6 
-# Using the version below raises an error in production
-gem 'deface', '1.8.1'
