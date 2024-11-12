@@ -8,7 +8,7 @@ Installation
 
 This plugin is compatible with Redmine 2.1.0+.
 
-Please apply general instructions for plugins [here](http://www.redmine.org/wiki/redmine/Plugins).
+Please apply general instructions for plugins [here](https://www.redmine.org/projects/redmine/wiki/Plugins).
 
 First download the source or clone the plugin and put it in the "plugins/" directory of your redmine instance. Note that this is crucial that the directory is named redmine_base_deface !
 
