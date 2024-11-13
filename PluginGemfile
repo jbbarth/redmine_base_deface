@@ -1,3 +1,1 @@
-# Later version of the Deface gem may not be fully compatible with Rails 5.2 & Redmine 4.2
-# bug described here: https://www.redmine.org/issues/35430
-gem 'deface', '1.6.2'
+gem 'deface', '~> 1.9.0'
