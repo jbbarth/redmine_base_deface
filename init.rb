@@ -24,16 +24,17 @@ if Rails::VERSION::MAJOR >= 7
     require_relative "lib/applicator_patch"
   end
 elsif Rails::VERSION::MAJOR == 6
+  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
+    Rails.autoloaders.main.ignore(path)
+  end
+
   Rails.application.config.after_initialize do
     Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
-      Rails.autoloaders.main.ignore(path)
       load File.expand_path(path, __FILE__)
     end
-
     Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
       Deface::DSL::Loader::load File.expand_path(path, __FILE__)
     end
-
     require_relative "lib/applicator_patch"
   end
 else
