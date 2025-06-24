@@ -15,16 +15,16 @@ end
 # - deface doesn't support direct loading anymore ; it unloads everything at boot so that reload in dev works
 # - hack consists in adding "app/overrides" path of all plugins in Redmine's main #paths
 if Rails.version > '6.0'
-  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
-    Rails.autoloaders.main.ignore(path)
-    load File.expand_path(path, __FILE__)
-  end
-
-  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
-    Deface::DSL::Loader::load File.expand_path(path, __FILE__)
-  end
-
   Rails.application.config.after_initialize do
+    Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
+      Rails.autoloaders.main.ignore(path)
+      load File.expand_path(path, __FILE__)
+    end
+
+    Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
+      Deface::DSL::Loader::load File.expand_path(path, __FILE__)
+    end
+
     require_relative "lib/applicator_patch"
   end
 else
