@@ -1,8 +1,8 @@
-name: Tests master
+name: Tests 6.0.9
 
 env:
   PLUGIN_NAME: redmine_base_deface
-  REDMINE_VERSION: master
+  REDMINE_VERSION: 6.0.9
   RAILS_ENV: test
 
 on:
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: ['3.4']
+        ruby: ['3.3']
         db: ['postgres']
       fail-fast: false
 
@@ -90,6 +90,7 @@ jobs:
         working-directory: redmine
         run: |
           sed -i '/rubocop/d' Gemfile
+          rm -f test/integration/routing/plugins_test.rb # Fix routing tests # TODO Remove this line when https://www.redmine.org/issues/38707 is fixed
           rm -f .rubocop*
           cp plugins/redmine_base_rspec/spec/support/database-${{ matrix.db }}.yml config/database.yml
 
