@@ -1,8 +1,8 @@
-name: Tests 6.1.2
+name: Tests 6.0.10
 
 env:
   PLUGIN_NAME: redmine_base_deface
-  REDMINE_VERSION: 6.1.2
+  REDMINE_VERSION: 6.0.10
   RAILS_ENV: test
 
 on:
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: ['3.4']
+        ruby: ['3.3']
         db: ['postgres']
       fail-fast: false
 
