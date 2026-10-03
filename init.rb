@@ -10,31 +10,20 @@ Redmine::Plugin.register :redmine_base_deface do
   # requires_redmine_plugin :redmine_base_rspec, :version_or_higher => '0.0.3' if Rails.env.test?
 end
 
-if Rails::VERSION::MAJOR >= 7
-  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
-    Rails.autoloaders.main.ignore(path)
-    load File.expand_path(path, __FILE__)
-  end
+require_relative "lib/redmine_base_deface/overrides_loader"
 
-  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
-    Deface::DSL::Loader::load File.expand_path(path, __FILE__)
-  end
+if Rails::VERSION::MAJOR >= 7
+  RedmineBaseDeface::OverridesLoader.ignore_ruby_overrides
+  RedmineBaseDeface::OverridesLoader.load_all
 
   Rails.application.config.after_initialize do
     require_relative "lib/applicator_patch"
   end
 elsif Rails::VERSION::MAJOR == 6
-  Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
-    Rails.autoloaders.main.ignore(path)
-  end
+  RedmineBaseDeface::OverridesLoader.ignore_ruby_overrides
 
   Rails.application.config.after_initialize do
-    Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.rb").each do |path|
-      load File.expand_path(path, __FILE__)
-    end
-    Dir.glob("#{Rails.root}/plugins/*/app/overrides/**/*.deface").each do |path|
-      Deface::DSL::Loader::load File.expand_path(path, __FILE__)
-    end
+    RedmineBaseDeface::OverridesLoader.load_all
     require_relative "lib/applicator_patch"
   end
 else
